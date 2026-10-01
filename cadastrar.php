@@ -8,19 +8,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Nova ordem de serviço</h1>
-        <form action="salvar.php" method="post">
+        <h1>Nova Ordem de Serviço</h1>
 
-            <label for="">cliente</label>
+        <form action="salvar.php" method="POST">
+            <label>Cliente</label>
             <input type="text" name="cliente" required>
 
-            <label for="">equipamento</label>
+            <label>Equipamento</label>
             <input type="text" name="equipamento" required>
 
-            <label for="">problema apresentado</label>
-            <textarea name="problema" required></textarea> 
+            <label>Problema apresentado</label>
+            <textarea name="problema" required></textarea>
 
-            <label for="">data de entrada</label>
+            <label>Data de entrada</label>
             <input type="date" name="dataEntrada" required>
 
             <label>Status</label>
@@ -28,10 +28,9 @@
                 <option value="Recebido">Recebido</option>
                 <option value="Em análise">Em análise</option>
                 <option value="Em manutenção">Em manutenção</option>
-                <option value="Concluido">Concluido</option>
+                <option value="Concluído">Concluído</option>
             </select>
             <button type="submit">Cadastrar ordem</button>
-
         </form>
 
         <a href="index.php">Voltar</a>

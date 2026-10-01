@@ -1,38 +1,39 @@
 <?php
     include "config/conexao.php";
 
-    $id = intval($_POST["$id"]);
+    $id = intval($_POST["id"]);
     $cliente = $_POST["cliente"];
     $equipamento = $_POST["equipamento"];
     $problema = $_POST["problema"];
-    $data_entrada = $_POST["data_entrada"];
+    $dataEntrada = $_POST["dataEntrada"];
     $status = $_POST["status"];
 
-    $sql = "update ordens_servico
-            set cliente = ?,
+    $sql = "UPDATE ordens_servico
+            SET cliente = ?,
                 equipamento = ?,
-                lproblema = ?,
+                problema = ?,
                 dataEntrada = ?,
                 status = ?
-            where id = ?";
+            WHERE id = ?";
 
     $stmt = $conexao -> prepare($sql);
+
     $stmt -> bind_param(
         "sssssi",
         $cliente,
         $equipamento,
         $problema,
-        $data_entrada,
+        $dataEntrada,
         $status,
         $id
     );
 
     if ($stmt->execute()){
-        header("location: index.php");
+        header("Location: index.php");
         exit;
     } else {
-        echo "erro ao atualizar.";
-    }
+        echo "Erro ao atualizar.";
+    }    
 ?>
 
 <!--------------------------------------------------------  comentários gerais  ---------------------------------------------------------
@@ -54,4 +55,3 @@
     type="hidden"....................... não mostra isso pro cliente
     $_POST.............................. é uma varialvel especial do php, recebe dados enviados pelo formulario qnd usamos o method="post" do html.
     
--->

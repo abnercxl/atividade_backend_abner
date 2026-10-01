@@ -1,15 +1,16 @@
 <?php
     include "config/conexao.php";
-    
-    $cliente = $_POST["cliente"]
-    $equipamento = $_POST["equipamento"]
-    $problema = $_POST["problema"]
-    $dataEntrada = $_POST["dataEntrada"]
-    $status = $_POST["status"]
+    // POST É UMA VARIAVEL ESPECIAL DO PHP, RECEBE DADOS ENVIADOS
+    // PELO FORMULÁRIO QUANDO USAMOS O METHOD="POST" DO HTML.
+    $cliente = $_POST["cliente"];
+    $equipamento = $_POST["equipamento"];
+    $problema = $_POST["problema"];
+    $dataEntrada = $_POST["dataEntrada"];
+    $status = $_POST["status"];
 
-    $sql = "INSERT into ordens_servico
-        (cliente, equipamento, problema, dataEntrada, status)
-        values (?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO ordens_servico
+            (cliente, equipamento, problema, dataEntrada, status)
+            VALUES (?, ?, ?, ?, ?)";
     // STATEMENT
     $stmt = $conexao->prepare($sql);
 
@@ -23,13 +24,12 @@
     );
 
     if ($stmt->execute()){
-        header("location: index.php");
+        header("Location: index.php");
         exit;
-    } else {
+    } else{
         echo "Erro ao cadastrar ordem de serviço.";
     }
 ?>
-
 <!--------------------------------------------------------  comentários gerais  ---------------------------------------------------------
 
     toda classe tem atributos, que são características ouinformações que o objeto possui
